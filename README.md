@@ -1,2 +1,2 @@
 # Simple-ToDo
-Todo simple UI web application to learn about Node JS
+Simple ToDo web app made with Node JS, Database in MySQL. This is app made with Simple UI only for learning purpose.
