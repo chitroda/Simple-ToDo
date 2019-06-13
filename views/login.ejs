@@ -1,0 +1,22 @@
+<%- include header %>
+    <div class="container">
+        <div style="margin-top: 100px; padding-top: 100px;">
+            <h1>Login to Your To-Do</h1>
+            <% if(error){ %>
+            <div class="alert alert-danger" role="alert"><%= error %></div>
+            <% } %>
+            <form method="POST" action="">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <input type="text" name="email" value="<%= email %>" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <input type="password" name="password" placeholder="Password" class="form-control">
+                    </div>
+                </div>
+                <input type="submit" name="submit" value="Login" class="btn btn-primary" style="margin-top: 15px;">
+                <a href="/signup" style="vertical-align: bottom; padding-left: 10px; text-decoration: none;">New here?</a>
+            </form>
+        </div>
+    </div>
+<%- include footer %>

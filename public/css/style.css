@@ -1,0 +1,49 @@
+.todo_list{
+    margin-top: 100px;
+}
+.todo_old_list{
+    margin-top: 40px;
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
+li{
+    cursor: pointer;
+    list-style-type: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 5px 5px 10px 0;
+    font-size: 22px;
+}
+.li-stire{
+    text-decoration-line: line-through;
+}
+form{
+    position: relative;
+}
+#green_bar, #red_bar{
+    display: none;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+}
+.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+.sign_out_btn{
+    position: absolute;
+    right: 21%;
+    top: 1%;
+}
+#sign_red_bar{
+    display: none;
+}
+#sign_red_bar ul{
+    margin-bottom: 0;
+}
+#sign_red_bar ul li{
+    pointer-events: none;
+}

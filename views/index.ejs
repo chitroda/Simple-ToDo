@@ -1,0 +1,16 @@
+<%- include header %>
+	<div class='container'>
+		<a href="/logout" class="btn btn-primary sign_out_btn">Logout</a>
+		<h1 class="text-center"><%= name %>'s To-Do List</h1>
+		<form id="form_todo" method="post">
+			<div class="form-group">
+				<input type="text" name="todo" class="form-control" placeholder="Add New To-Do">
+			</div>
+			<input type="submit" value="Add To-Do" name="submit" class="btn btn-danger">
+			<div class="alert alert-success" role="alert" id="green_bar"></div>
+			<div class="alert alert-danger" role="alert" id="red_bar"></div>
+		</form>
+		<div class="todo_list"><h2>Today's To-Do</h2><ul></ul></div>
+		<div class="todo_old_list"><h2>To-Do History</h2><ul></ul></div>
+	</div>
+<%- include footer %>

@@ -1,0 +1,78 @@
+	<script src="/public/js/script.js"></script>
+	<% if(current_url === '/'){ %>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+
+			//Strike through line on todo and change its status in db
+			$('body').on('click', '.todo_list ul li', function(){
+				var $this = $(this);
+				$.ajax({
+					type: 'POST',
+					url: '/todo-history',
+					data: {id: $(this).attr('data-id')},
+					success: function(data){
+						if(data === true){
+							$this.find('span:first-child').addClass('li-stire');
+							$this.find('span:last-child').addClass('text-success');
+							$this.find('span:last-child').removeClass('text-danger');
+							$this.find('span:last-child').text('completed');
+						}
+						else{
+							$this.find('span:first-child').removeClass('li-stire');
+							$this.find('span:last-child').removeClass('text-success');
+							$this.find('span:last-child').addClass('text-danger');
+							$this.find('span:last-child').text('incomplete');
+						}
+					},
+					error: function(){
+						alert('Error');
+					}
+				});
+			});
+		});
+	</script>
+	<% } %>
+	<% if(current_url === '/signup'){ %>
+		<script type="text/javascript">
+			jQuery(document).ready(function($){
+
+				//Sign up form validation
+				$('form').submit(function(e){
+					$this = $(this);
+					let name = $('input[name=name]');
+					let email = $('input[name=email]');
+					let pwd = $('input[name=password]');
+					var err = false;
+
+					$('.err_main').hide();
+					$('#sign_red_bar').hide();
+					$('#sign_red_bar ul').empty();
+					$('.err_main').empty();
+
+					if(name.val() === ''){
+						e.preventDefault();
+						err = true;
+						$('#sign_red_bar').show();
+						$('#sign_red_bar ul').append('<li>Name is required</li>');
+					}
+					if(email.val() === ''){
+						e.preventDefault();
+						err = true;
+						$('#sign_red_bar').show();
+						$('#sign_red_bar ul').append('<li>Email is required</li>');
+					}
+					if(pwd.val() === ''){
+						e.preventDefault();
+						err = true;
+						$('#sign_red_bar').show();
+						$('#sign_red_bar ul').append('<li>Password is required</li>');
+					}
+					if(!err){
+						$this.submit();
+					}
+				});
+			});
+		</script>
+	<% } %>
+</body>
+</html>
