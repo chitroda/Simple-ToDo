@@ -3,7 +3,6 @@ const mysql = require('mysql');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const path = require('path');
 const port = process.env.PORT || 8080;
 const session = require('express-session');
 
@@ -53,6 +52,7 @@ app.get('/logout', get_modules.logout);
 app.get('/signup', get_modules.signup);
 app.post('/signup', get_modules.signup_process);
 
+// Setting Up server on PORT
 app.listen(port, () => {
     console.log('Server runnig at: '+port);
 });
